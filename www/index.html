@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SW</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="icon" href="">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+      }
+      #stats {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #main_canvas {
+        /*opacity: 0.1;*/
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        /*width: 100%;*/
+        /*height: 100%;*/
+        /*max-width: 800px;*/
+      }
+    </style>
+    <!-- build:js app.min.js -->
+    <script src="bower_components/pixi/bin/pixi.min.js"></script>
+    <script src="bower_components/howler/howler.min.js"></script>
+    <script src="bower_components/hammerjs/hammer.min.js"></script>
+    <script src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="bower_components/gsap/src/minified/TimelineMax.min.js"></script>
+    <script src="bower_components/stats.js/build/stats.min.js"></script>
+    <script src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="bower_components/gsap/src/minified/TimelineMax.min.js"></script>
+
+    <script src="src/functions.js"></script>
+    <script>PIXI.utils._saidHello = true</script>
+
+    <script src="src/core/helpers/CollisionHelper.js"></script>
+    <script src="src/core/Timer.js"></script>
+    <script src="src/core/Point.js"></script>
+    <script src="src/core/Setting.js"></script>
+    <script src="src/core/BeatManager.js"></script>
+    <script src="src/core/Screen.js"></script>
+    <script src="src/core/Pattern.js"></script>
+    <script src="src/core/Chance.js"></script>
+    <script src="src/core/TimeSlot.js"></script>
+    <script src="src/core/TimeSlotManager.js"></script>
+    <script src="src/core/Director.js"></script>
+    <script src="src/core/State.js"></script>
+    <script src="src/core/Actor.js"></script>
+    <script src="src/core/AnimatedActor.js"></script>
+    <script src="src/core/Collidable.js"></script>
+    <script src="src/core/World.js"></script>
+    <script src="src/impl/WorldRenderer.js"></script>
+    <script src="src/impl/ClipManager.js"></script>
+    <script src="src/impl/OutlineManager.js"></script>
+    <script src="src/impl/ScreenImpl.js"></script>
+    <script src="src/impl/DirectorImpl.js"></script>
+
+    <script src="src/sw/models/Card.js"></script>
+    <script src="src/sw/models/Coin.js"></script>
+    <script src="src/sw/models/CoinPool.js"></script>
+    <script src="src/sw/models/Wallet.js"></script>
+    <script src="src/sw/screens/GameAssets.js"></script>
+    <script src="src/sw/screens/GameScreen.js"></script>
+    <script src="src/sw/SwSetting.js"></script>
+    <script src="src/sw/World1.js"></script>
+    <script src="src/sw/World1Listener.js"></script>
+    <script src="src/sw/World1Renderer.js"></script>
+    <script src="src/sw/SwDirector.js"></script>
+
+    <!-- endbuild -->
+  </head>
+  <body>
+    <canvas id="main_canvas"></canvas>
+    <script>
+      var sw_director = new SwDirector(480, 800, {backgroundColor: 0x292929})
+    </script>
+  </body>
+</html>

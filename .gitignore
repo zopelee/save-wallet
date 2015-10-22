@@ -1,0 +1,11 @@
+/nbproject/
+/www/bower_components/*/*
+/www/bower_components/*/*/*
+!/www/bower_components/*/*.min.js
+!/www/bower_components/*/bin
+!/www/bower_components/*/bin/*.min.js
+!/www/bower_components/*/build
+!/www/bower_components/*/build/*.min.js
+!/www/bower_components/*/src
+!/www/bower_components/*/src/minified
+!/www/bower_components/*/src/*/*.min.js

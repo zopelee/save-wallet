@@ -1,0 +1,23 @@
+{
+  "name": "save-wallet",
+  "version": "0.0.1",
+  "authors": [
+    "zopelee@gmail.com"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "index.html"
+  ],
+  "dependencies": {
+    "gsap": "~1.18.0",
+    "hammerjs": "~2.0.4",
+    "howler": "~1.1.26",
+    "pixi": "~3.0.7",
+    "stats.js": "*"
+  }
+}

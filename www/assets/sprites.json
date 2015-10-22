@@ -1,0 +1,35 @@
+{
+"frames": {
+	"card.png": {
+		"trimmed": true, "frame": {"x":0, "y":0, "w":448, "h":402},
+		"spriteSourceSize": {"x":28,"y":49,"w":500,"h":500},
+		"sourceSize": {"w":500,"h":500}
+	},
+	"coin_01.png": {
+		"trimmed": true, "frame": {"x":0, "y":668, "w":170, "h":170},
+		"spriteSourceSize": {"x":0,"y":0,"w":170,"h":170},
+		"sourceSize": {"w":170,"h":170}
+	},
+	"coin_02.png": {
+		"trimmed": true, "frame": {"x":0, "y":839, "w":164, "h":167},
+		"spriteSourceSize": {"x":3,"y":0,"w":170,"h":170},
+		"sourceSize": {"w":170,"h":170}
+	},
+	"wallet.png": {
+		"trimmed": true, "frame": {"x":0, "y":403, "w":246, "h":264},
+		"spriteSourceSize": {"x":44,"y":53,"w":354,"h":354},
+		"sourceSize": {"w":354,"h":354}
+	},
+	"yellow_glow.png": {
+		"trimmed": true, "frame": {"x":165, "y":839, "w":149, "h":149},
+		"spriteSourceSize": {"x":0,"y":0,"w":149,"h":149},
+		"sourceSize": {"w":149,"h":149}
+	}
+
+},
+"meta": {
+	"image": "sprites.png",
+	"size": {"w": 512, "h": 1024},
+	"scale": "1"
+}
+}
