@@ -9,7 +9,7 @@ function GameAssets(screen) {
   this.gameoverText
   this.playagainText
 
-  this.sprite_sheets = ["assets/sprites.json", "assets/mc.json"]
+  this.sprite_sheets = ["assets/sprites.json", "assets/mc.json", 'assets/touch.png']
   PIXI.loader
           .add(this.sprite_sheets)
           .load(this.onAssetsLoaded.bind(this));
@@ -27,7 +27,18 @@ GameAssets.prototype.onAssetsLoaded = function () {
   this.wallet_expo = new PIXI.extras.MovieClip(Array.apply(null, Array(26)).map(function (e, i) {
     return PIXI.Texture.fromFrame('Explosion_Sequence_A ' + (i + 1) + '.png')
   }))
-  this.gameoverText = new PIXI.Text('珍愛銀包，用八達通', {
+  this.touch = new PIXI.Sprite(new PIXI.Texture.fromFrame('assets/touch.png'))
+  this.readyText = new PIXI.Text('READY', {
+    font: 'bold italic 38px Arial',
+    fill: '#DDD',
+  })
+  this.socrowdedText = new PIXI.Text('好逼!', {
+    font: 'bold 22px Arial',
+    fill: '#222',
+    stroke: '#DDD',
+    strokeThickness: 3,
+  })
+  this.gameoverText = new PIXI.Text('珍愛銀包 用八達通', {
     font: 'bold italic 36px Arial',
     fill: '#666',
     stroke: '#CEE632',

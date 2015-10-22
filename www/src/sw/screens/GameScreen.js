@@ -35,7 +35,7 @@ GameScreen.prototype.onAssetsPrepared = function (stage) {
   this.childrenToAdd = this.world_renderer.childrenToAdd
   ScreenImpl.prototype.onAssetsPrepared.call(this)   // add all childrenToAdd to stage
   this.world_renderer.init()   // set additional scales
-  this.world.start()
+  this.world.ready()
 
   this.assets.playagainText.mousedown = this.assets.playagainText.touchstart = function (eventData) {
     this.world.playAgain()

@@ -13,17 +13,32 @@ function World1(listener) {
   this.card = new Card(240, 500, {max_velocity: 5000, width: 120, height: 80, scale: new Point(0.3, 0.3)})
   this.wallet = new Wallet(240, 700, {radius: 50, expo_threshod: this.setting.EXPO_THRESHOLD, scale: new Point(0.8, 0.8)})
 
+  this.readyText = new Actor(-100, 300)
+  this.touch = new Actor(200, 600, {alpha: 0})
+
+  this.demo_timeline = new TimelineMax({paused: true})
+          .fromTo(this.readyText.position, 0.3, {x: -100}, {x: 240}, 'in')
+          .fromTo(this.touch, 0.3, {alpha: 0}, {alpha: 1}, 'in')
+          .to(this.card.position, 0.5, {x: '-=120'}, 'left')
+          .to(this.touch.position, 0.5, {x: '-=120'}, 'left')
+          .to(this.card.position, 0.5, {x: 240}, 'right')
+          .to(this.touch.position, 0.5, {x: 200}, 'right')
+          .to(this.readyText.position, 0.3, {x: 480 + 100}, 'out')
+          .fromTo(this.touch, 0.3, {alpha: 1}, {alpha: 0}, 'out')
+
   this.ready = function () {
     // called after assets prepared
     this.state = World1.STATES.READY
     this.state_time = 0
+    this.coinpool.reset()
+    this.wallet.reset()
+    this.card.position.x = this.card.destination.x = 240
+    this.demo_timeline.restart()
   }
 
   this.start = function () {
     this.state = World1.STATES.RUNNING
     this.state_time = 0
-    this.coinpool.reset()
-    this.wallet.reset()
   }
 
   this.update = function (dt) {
@@ -32,6 +47,7 @@ function World1(listener) {
     this.coinpool.update(dt)
     this.card.update(dt)
     this.wallet.update(dt)
+    this.touch.update(dt)
 
     switch (this.state) {
       case World1.STATES.READY:
@@ -113,7 +129,7 @@ function World1(listener) {
   }
 
   this.playAgain = function () {
-    this.start()
+    this.ready()
   }
 
   this.onPress = function (x, y) {

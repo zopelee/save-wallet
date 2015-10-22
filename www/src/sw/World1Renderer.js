@@ -9,6 +9,9 @@ function World1Renderer(world, screen, options) {
   ].concat(this.world.coinpool.available_coins.map(function (c, i) {
     return [c, this.assets.coins[i]]
   }.bind(this))).concat([
+    [this.world.readyText, this.assets.readyText],
+    [this.world.touch, this.assets.touch],
+    [this.world.wallet.socrowdedText, this.assets.socrowdedText],
     [null, this.assets.gameoverText], [null, this.assets.playagainText]
   ])
 
@@ -28,7 +31,7 @@ World1Renderer.prototype.init = function () {
       child.anchor.set(0.5, 0.5)
     }
   })
-  this.assets.coins.forEach(function(c){
+  this.assets.coins.forEach(function (c) {
     c.position.set(this.world.coinpool.initial_x, this.world.coinpool.initial_y)
   }.bind(this))
 
