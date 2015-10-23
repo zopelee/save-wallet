@@ -9,7 +9,7 @@ function World1(listener) {
   this.state_time = 0
   this.score = 0
 
-  this.coinpool = new CoinPool(this.setting.MAX_COINS, this.setting.GRAVITY)
+  this.coinpool = new CoinPool(this.setting.MAX_COINS, this.setting.MAX_COIN_VELOCITY, this.setting.GRAVITY)
   this.card = new Card(240, 500, {max_velocity: 5000, width: 120, height: 80, scale: new Point(0.3, 0.3)})
   this.wallet = new Wallet(240, 700, {radius: 50, expo_threshod: this.setting.EXPO_THRESHOLD, scale: new Point(0.8, 0.8)})
 

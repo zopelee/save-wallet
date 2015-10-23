@@ -1,4 +1,4 @@
-function CoinPool(max_coins, gravity) {
+function CoinPool(max_coins, max_velo, gravity) {
   this.max_coins = max_coins
   this.gravity = gravity
   this.initial_x = 240
@@ -23,7 +23,7 @@ function CoinPool(max_coins, gravity) {
     }
     coin.state = Coin.STATES.FALLING
     coin.acceleration.set(0, this.gravity)
-    coin.velocity.set((Math.random() - 0.5) * 5000, Math.random() * 1000)
+    coin.velocity.set((Math.random() - 0.5) * 2 * max_velo.x, Math.random() * max_velo.y)
     coin.position.y = this.initial_y
     this.falling_coins.push(coin)
   }
