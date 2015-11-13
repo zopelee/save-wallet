@@ -4,7 +4,7 @@ function CoinPool(max_coins, max_velo, gravity) {
   this.initial_x = 240
   this.initial_y = -100
   this.available_coins = Array.apply(null, Array(max_coins)).map(function () {
-    return new Coin(240, this.initial_y, {radius: 10, scale: new Point(0.5, 0.5)})
+    return new Coin(240, this.initial_y, {radius: 10, scale: new Point(0.5, 0.5), rotation_speed: (Math.random() * 20) * (Math.random() < 0.5 ? -1 : 1)})
   })
   this.falling_coins = []
   this.dropped_coins = []
@@ -27,7 +27,7 @@ function CoinPool(max_coins, max_velo, gravity) {
     coin.position.y = this.initial_y
     this.falling_coins.push(coin)
   }
-  
+
   this.recycleCoin = function (coin) {
     var index = this.falling_coins.indexOf(coin)
     if (index < 0) {
@@ -39,7 +39,7 @@ function CoinPool(max_coins, max_velo, gravity) {
     coin.position.set(this.initial_x, this.initial_y)
     this.available_coins.push(coin)
   }
-  
+
   this.reset = function () {
     this.drop_slotmgr.resetAll()
     for (var i = this.falling_coins.length; i--; ) {
@@ -57,10 +57,10 @@ function CoinPool(max_coins, max_velo, gravity) {
       this.available_coins.push(coin)
     }
   }
-  
+
   this.start = function () {
   }
-  
+
   this.update = function (dt) {
     this.falling_coins.forEach(function (c) {
       c.update(dt)

@@ -3,6 +3,7 @@ Coin.prototype = Object.create(Collidable.prototype)
 function Coin(x, y, options) {
   Collidable.call(this, x, y, options)
   this.state = Coin.STATES.AVAILABLE
+  this.rotation_speed = options.rotation_speed || 0
 }
 
 Coin.prototype.update = function (dt) {
@@ -11,6 +12,7 @@ Coin.prototype.update = function (dt) {
     case Coin.STATES.AVAILABLE:
       break
     case Coin.STATES.FALLING:
+      this.rotation += this.rotation_speed * dt
       break
     case Coin.STATES.DROPPED:
       break
