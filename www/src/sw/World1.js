@@ -30,6 +30,7 @@ function World1(listener) {
     // called after assets prepared
     this.state = World1.STATES.READY
     this.state_time = 0
+    this.score = 0
     this.coinpool.reset()
     this.wallet.reset()
     this.card.position.x = this.card.destination.x = 240

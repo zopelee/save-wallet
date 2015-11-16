@@ -38,6 +38,10 @@ GameAssets.prototype.onAssetsLoaded = function () {
     stroke: '#DDD',
     strokeThickness: 3,
   })
+  this.scoreText = new PIXI.Text('', {
+    font: 'bold italic 36px Arial',
+    fill: '#F5D60C',
+  })
   this.gameoverText = new PIXI.Text('珍愛銀包 用八達通', {
     font: 'bold italic 36px Arial',
     fill: '#666',

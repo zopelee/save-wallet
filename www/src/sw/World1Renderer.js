@@ -12,7 +12,8 @@ function World1Renderer(world, screen, options) {
     [this.world.readyText, this.assets.readyText],
     [this.world.touch, this.assets.touch],
     [this.world.wallet.socrowdedText, this.assets.socrowdedText],
-    [null, this.assets.gameoverText], [null, this.assets.playagainText]
+    [null, this.assets.gameoverText], [null, this.assets.playagainText],
+    [null, this.assets.scoreText]
   ])
 
   this.syncGlows = function () {
@@ -41,11 +42,13 @@ World1Renderer.prototype.init = function () {
   this.assets.wallet_expo.visible = false
   this.assets.gameoverText.position.set(240, 400)
   this.assets.playagainText.position.set(240, 500)
+  this.assets.scoreText.position.set(100, 50)
 }
 
 World1Renderer.prototype.render = function () {
   WorldRenderer.prototype.render.call(this);
   this.assets.card_glow.alpha = this.world.card.glow_alpha
+  this.assets.scoreText.text = ('餘額: ' + this.world.score)
   switch (this.world.state) {
     case World1.STATES.READY:
     case World1.STATES.RUNNING:
