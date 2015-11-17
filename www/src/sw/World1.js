@@ -27,7 +27,8 @@ function World1(listener) {
           .to(this.readyText.position, 0.3, {x: 480 + 100}, 'out')
           .fromTo(this.touch, 0.3, {alpha: 1}, {alpha: 0}, 'out')
   this.add_score_timeline = new TimelineMax({paused: true})
-          .fromTo(this.scoreText, 0.2, {alpha: 0}, {alpha: 1, yoyo: true})
+          .fromTo(this.scoreText, 0.2, {alpha: 1}, {alpha: 0, reversed: true})
+//  yoyo: true should only work with repeat
 
   this.ready = function () {
     // called after assets prepared
