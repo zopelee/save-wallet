@@ -14,6 +14,7 @@ function World1(listener) {
   this.wallet = new Wallet(240, 700, {radius: 50, expo_threshod: this.setting.EXPO_THRESHOLD, scale: new Point(0.8, 0.8)})
 
   this.readyText = new Actor(-100, 300)
+  this.scoreText = new Actor(100, 50)
   this.touch = new Actor(200, 600, {alpha: 0})
 
   this.demo_timeline = new TimelineMax({paused: true})
@@ -25,6 +26,8 @@ function World1(listener) {
           .to(this.touch.position, 0.5, {x: 200}, 'right')
           .to(this.readyText.position, 0.3, {x: 480 + 100}, 'out')
           .fromTo(this.touch, 0.3, {alpha: 1}, {alpha: 0}, 'out')
+  this.add_score_timeline = new TimelineMax({paused: true})
+          .fromTo(this.scoreText, 0.2, {alpha: 0}, {alpha: 1, yoyo: true})
 
   this.ready = function () {
     // called after assets prepared
@@ -49,6 +52,7 @@ function World1(listener) {
     this.card.update(dt)
     this.wallet.update(dt)
     this.touch.update(dt)
+    this.scoreText.update(dt)
 
     switch (this.state) {
       case World1.STATES.READY:
@@ -113,6 +117,7 @@ function World1(listener) {
         this.card.glow()
         this.coinpool.recycleCoin(coin)
         this.score += 1
+        this.add_score_timeline.restart()
       } else if (coin.position.y >= this.wallet.position.y) {
         console.log('dropped')
         this.wallet.eat()
